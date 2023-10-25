@@ -77,6 +77,18 @@ body {
 }
 /* End of Navigation Styling */
 
+/* Start of about.html Styling */
+
+.about {
+  border-radius: 25px;
+  background-color: var(--accent-color);
+  padding: 20px;
+  margin-bottom: 15px;
+  color: var(--text-color);
+}
+
+/* End of about.html Styling */
+
 /* Start of Landing Image Styling */
 
 .landing-image {
