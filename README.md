@@ -1,39 +1,32 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+<h1 align="center">HERB Monitoring</h1>
 
-Welcome,
+Click [here]() to view the live project on GitHub Pages.
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+This is a project for the Code Institute Milestone Project 2. It is a website used to enable users to monitor frequently updated APIs containing geospatial information.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+This will contain:
+-   Weather Monitoring
+-   Flood Alerts
+-   Traffic Data
 
-## Codeanywhere Reminders
+# User Experience (UX)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+## User Stories
 
-`python3 -m http.server`
+-    ### Goals For A First-Time Visitor:
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+        1. As A First Time Visitor - I want to be able to understand the main purpose of the site, and find out useful information regarding the business.
+        2. As A First Time Visitor - I want to be able to view an intuitive layout and navigation to easily find the page I require.
+        3. As A First Time Visitor - I want to be able to interact with the maps on the page to achieve my desired purpose.
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+-    #### Goals For A Returning Visitor:
 
-`http_server`
+        1. As A Returning Visitor - I want to be able to see any updates to the information on the monitoring maps.
+        2. As A Returning Visitor - I want to be able to view a page containing contact details where I can ask for support or pose general queries.
+        3. As A Returning Visitor - I want to be able to query the monitoring data to gain a better understanding of what it represents.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+-    #### Goals For A Frequent Visitor:
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
-
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
----
-
-Happy coding!
+        1. As A Frequent Visitor - I want to be able to view the sources of the data to verify it's integrity.
+        2. As A Frequent Visitor - I want to be able to use a location feature to find a specific area of the country, preferably my own location.
+        3. As A Frequent Visitor - I want to be able to draw my own features on the map in order to highliht a specific area.
