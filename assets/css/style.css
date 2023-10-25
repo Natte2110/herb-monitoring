@@ -201,6 +201,22 @@ body {
 
 /* End of Index.html Styling */
 
+/* Start of Monitoring.html Styling */
+
+#monitoring-map {
+  background: url("../media/herb-background.jpg") no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 54px;
+  bottom: 0;
+  height: auto;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* End of Monitoring.html Styling */
 /* Start of Footer Styling */
 .footer-dark {
   margin-top: 10vh;
