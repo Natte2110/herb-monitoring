@@ -155,6 +155,40 @@ body {
 }
 /* End of Landing Image Styling */
 
+/* Start of Index.html Styling */
+.map {
+  height: 500px;
+  border-radius: 30px;
+  margin-bottom: 40px;
+}
+
+#map01 {
+  background: url('../media/map01.png') center center no-repeat;
+  background-size: cover;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
+}
+
+#map02 {
+  background: url('../media/map02.png') center center no-repeat;
+  background-size: cover;
+}
+
+#map03 {
+  background: url('../media/map03.png') center center no-repeat;
+  background-size: cover;
+}
+
+.mask {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+  border-radius: 30px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+/* End of Index.html Styling */
+
 /* Start of Footer Styling */
 .footer-dark {
   margin-top: 10vh;
