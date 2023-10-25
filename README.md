@@ -48,3 +48,11 @@ This will contain:
 
     -   The home page will be fitted with a fixed, scrollable background image that will have a dynamic blur effect applied as the user scrolls.
     -   Imagery will also be available in [popups](https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Popup.html) contained within the information displayed on the mapping pages.
+
+## Wireframes
+
+Click on the links below to access the wireframes created to plan and design this website.
+
+-   [Desktop Home Page Wireframe](assets/media/desktop-wireframe01.png)
+
+-   [Mobile Home Page Wireframe](assets/media/mobile-wireframe01.png)
