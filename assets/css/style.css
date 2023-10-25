@@ -13,6 +13,7 @@ body {
   background-color: #282d32;
 }
 
+/* Start of Navigation Styling */
 #site-nav {
   position: fixed;
   top: 0;
@@ -74,3 +75,8 @@ body {
 .active a {
   color: rgba(255, 255, 255, 1);
 }
+/* End of Navigation Styling */
+
+/* Start of Landing Image Styling */
+
+/* End of Landing Image Styling */
