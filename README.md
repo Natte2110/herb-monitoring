@@ -32,3 +32,19 @@ This will contain:
         1. As A Frequent Visitor - I want to be able to view the sources of the data to verify it's integrity.
         2. As A Frequent Visitor - I want to be able to use a location feature to find a specific area of the country, preferably my own location.
         3. As A Frequent Visitor - I want to be able to draw my own features on the map in order to highliht a specific area.
+
+## Design
+
+-   ### Colour Scheme
+
+    -   The main colour scheme will be an off-blue colour with an overall dark feel to the site. White text will be used atop this dark background to ensure clear visibility of all text across all pages.
+    - This colour scheme will provide a professional feel to the website as well as being easily accessible to all users.
+
+-   ### Typography
+
+    -   The main font used within the websites design will be Open Sans, with a fall-back font of Sans-Serif if the Open Sans font could not be loaded. The Open Sans font gives off a professional first impression.
+
+-   ### Imagery
+
+    -   The home page will be fitted with a fixed, scrollable background image that will have a dynamic blur effect applied as the user scrolls.
+    -   Imagery will also be available in [popups]("https://developers.arcgis.com/javascript/latest/api-reference/esri-widgets-Popup.html") contained within the information displayed on the mapping pages.
