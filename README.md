@@ -1,3 +1,5 @@
+<img align="center" src="./assets/media/herb-logo-large.png"></img>
+
 <h1 align="center">HERB Monitoring</h1>
 
 Click [here]() to view the live project on GitHub Pages.
