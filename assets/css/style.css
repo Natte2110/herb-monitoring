@@ -9,5 +9,68 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
+  background-color: #282d32;
+}
+
+#site-nav {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  background-color: transparent;
+  border-bottom: solid rgba(255, 255, 255, .4);
+}
+
+#site-nav a {
+  color: rgba(255, 255, 255, .8);
+  padding: 4px 15px;
+  font-size: 14px;
+  border-radius: 20px;
+}
+
+#site-nav li {
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+#site-nav .nav-link:hover {
+  color: #000000;
+  background-color: #ffffff;
+  transition: 0.3s;
+}
+
+.active {
+  border-radius: 20px;
+  background-color: #4590bf;
+  box-shadow: rgba(45, 45, 203, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.darknav {
+  background-color: var(--accent-color) !important;
+  position: relative !important;
+  display: block;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.admin-return {
+  border-radius: 20px;
+  background-color: #920808;
+  box-shadow: rgba(45, 45, 203, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+#site-nav i {
+  color: #ffffff;
+}
+
+.nav-logo {
+  height: 30px;
+}
+
+.active a {
+  color: rgba(255, 255, 255, 1);
 }
