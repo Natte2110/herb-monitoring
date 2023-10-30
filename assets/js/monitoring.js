@@ -9,6 +9,9 @@ require([
   const monitoringChoices = document.getElementById("monitoring-items");
 
   const displayMap = (layer) => {
+    /**
+     * This function creates a map with the given monitoring layer and displays it in the "monitoring-map" div.
+     */
     const map = new Map({
       basemap: "dark-gray-vector" // basemap styles service
     });
