@@ -237,6 +237,22 @@ body {
   }
 }
 
+#flood{
+  bottom: 0%;
+  background: url("../media/map01.png") center center no-repeat;
+  background-size: cover;
+}
+
+#weather{
+  bottom: 15%;
+  left: 20%;
+}
+
+#traffic{
+  bottom: 30%;
+  left: 40%;
+}
+
 /* End of Monitoring.html Styling */
 /* Start of Footer Styling */
 .footer-dark {
