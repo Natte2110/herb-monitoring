@@ -5,6 +5,7 @@ require([
     Map, 
     MapView) {
 
+    const monitoringChoices = document.getElementById("monitoring-items");
     const map = new Map({
       basemap: "dark-gray-vector" // basemap styles service
     });
@@ -15,5 +16,6 @@ require([
       zoom: 5, // Zoom level
       container: "monitoring-map" // Div element
     });
-  
+
+    view.ui.add(monitoringChoices, "bottom-right")
   });
