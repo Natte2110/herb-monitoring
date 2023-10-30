@@ -216,7 +216,7 @@ body {
 }
 
 #monitoring-items {
-  height: 150px;
+  height: 200px;
   width: 150px;
   box-shadow: none;
 }
@@ -247,20 +247,21 @@ body {
   text-align: center;
 }
 
-#flood {
+.bottom-card {
   bottom: 0%;
-  background: url("../media/map01.png") center center no-repeat;
-  background-size: cover;
+  z-index: 0;
 }
 
-#weather {
+.middle-card {
   bottom: 15%;
   left: 20%;
+  z-index: 1;
 }
 
-#traffic {
+.top-card {
   bottom: 30%;
   left: 40%;
+  z-index: 2;
 }
 
 /* End of Monitoring.html Styling */
