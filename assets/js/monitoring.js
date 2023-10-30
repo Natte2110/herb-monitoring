@@ -22,6 +22,12 @@ require([
     view.ui.add(monitoringChoices, "bottom-right")
   }
   monitoringChoices.addEventListener("click", function (event) {
+    /**
+     * This section creates an event listener for the entire card stack.
+     * If any of these cards within the stack are clicked, the exact card's ID is used.
+     * The next part removes the card organisation classes from each card, before reordering and reapplying 
+     * the organisation classes afterwards.
+     */
     let clickedID = event.target.parentElement
     let orderItems = document.getElementsByClassName("monitoring-switch")
     let newOrder = [clickedID.id];
@@ -38,6 +44,6 @@ require([
     });
     displayMap(clickedID.id);
   });
-  
+
   displayMap("flood")
 });
