@@ -88,7 +88,47 @@ require([
 
               let layer = new FeatureLayer({
                 source: features,  // autocast as a Collection of new Graphic()
-                objectIdField: "ObjectID"
+                objectIdField: "ObjectID",
+                fields: [{
+                  name: "ObjectID",
+                  alias: "ObjectID",
+                  type: "oid"
+              }, {
+                  name: "County",
+                  alias: "County",
+                  type: "string"
+              },
+              {
+                  name: "description",
+                  alias: "description",
+                  type: "string"
+              },
+              {
+                  name: "eaAreaName",
+                  alias: "eaAreaName",
+                  type: "string"
+              },
+              {
+                  name: "fwdCode",
+                  alias: "fwdCode",
+                  type: "string"
+              },
+              {
+                  name: "severityLevel",
+                  alias: "severityLevel",
+                  type: "string"
+              },
+              {
+                  name: "severity",
+                  alias: "severity",
+                  type: "string"
+              },
+              {
+                  name: "polygon",
+                  alias: "polygon",
+                  type: "string"
+              }],
+                
               });
               map.layers.add(layer);
             })
