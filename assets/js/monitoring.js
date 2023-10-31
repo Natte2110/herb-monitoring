@@ -127,6 +127,13 @@ require([
                     url: url
                   });
                   
+                  view.goTo({
+                    target: view.popup.features[0],
+                    zoom: 12
+                  }, {
+                    duration: 1000
+                  }); // Zooms to selected flood alert station
+
                   map.layers.add(floodArea)
                 });
               }
