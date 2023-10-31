@@ -148,8 +148,40 @@ require([
                   title: "{eaAreaName}",
                   content: popupCreation,
                   outFields: ["*"],
-                }
+                },
+                opacity: 0.5
               });
+
+              layer.renderer = {
+                type: "unique-value",
+                field: "severityLevel",
+                defaultSymbol: { type: "simple-marker" },
+                uniqueValueInfos: [{
+                  value: "4",
+                  symbol: {
+                    type: "simple-marker",
+                    color: "green"
+                  }
+                }, {
+                  value: "3",
+                  symbol: {
+                    type: "simple-marker",
+                    color: "yellow"
+                  }
+                }, {
+                  value: "2",
+                  symbol: {
+                    type: "simple-marker",
+                    color: "orange"
+                  }
+                }, {
+                  value: "West",
+                  symbol: {
+                    type: "simple-marker",
+                    color: "red"
+                  }
+                }],
+              };
               map.layers.add(layer);
             })
 
