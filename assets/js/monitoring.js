@@ -2,12 +2,14 @@ require([
   "esri/Map",
   "esri/views/MapView",
   "esri/layers/FeatureLayer",
-  "esri/geometry/Point"
+  "esri/geometry/Point",
+  "esri/core/reactiveUtils"
 ], function (
   Map,
   MapView,
   FeatureLayer,
-  Point) {
+  Point,
+  reactiveUtils) {
 
   const getData = (url) => {
     return fetch(url)
@@ -97,6 +99,29 @@ require([
                 return div;
               }
 
+              reactiveUtils.on(
+                () => view.popup,
+                "trigger-action",
+                (event) => {
+                  if (event.action.id === "show-polygon") {
+                    showPolygon();
+                  }
+                }
+              ); // ESRI Reactive utils, processes a click on the esri popup window within the map
+
+              const showPolygon = () => {
+                /**
+                 * This function will be used to display the flood area of the alert to the user.
+                 */
+                console.log(view.popup.features[0].attributes.polygon)
+              }
+              // Represents the way that this action will be displayed on the popup window
+              const showPolygonAction = {
+                title: "Show Flood Area",
+                id: "show-polygon",
+                className: "esri-icon-polygon"
+              };
+
               let layer = new FeatureLayer({
                 source: features,  // autocast as a Collection of new Graphic()
                 objectIdField: "ObjectID",
@@ -148,6 +173,7 @@ require([
                   title: "{eaAreaName}",
                   content: popupCreation,
                   outFields: ["*"],
+                  actions: [showPolygonAction]
                 },
                 opacity: 0.5
               });
