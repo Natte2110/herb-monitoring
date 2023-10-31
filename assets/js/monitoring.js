@@ -81,6 +81,7 @@ require([
                     severityLevel: item.severityLevel,
                     severity: item.severity,
                     polygon: item.polygon,
+                    timeMessageChanged: item.timeMessageChanged
                   }
                 })
                 x++ // Increment for the object ID's
@@ -90,7 +91,8 @@ require([
                 const div = document.createElement("div");
                 div.innerHTML =
                   `<p>${feature.graphic.attributes.description}</p>
-                  <p>This station has a severity level of <b>${feature.graphic.attributes.severityLevel}</b>, with a desciption of <b>"${feature.graphic.attributes.severity}"</b></p>
+                  <p>This station has a severity level of <b>${feature.graphic.attributes.severityLevel}</b>, with a desciption of <b>"${feature.graphic.attributes.severity}".</b></p>
+                  <p>This warning was last updated - <b>${feature.graphic.attributes.timeMessageChanged}</b></p>
                   `
                 return div;
               }
@@ -135,6 +137,11 @@ require([
                 {
                   name: "polygon",
                   alias: "polygon",
+                  type: "string"
+                },
+                {
+                  name: "timeMessageChanged",
+                  alias: "timeMessageChanged",
                   type: "string"
                 }],
                 popupTemplate: {
