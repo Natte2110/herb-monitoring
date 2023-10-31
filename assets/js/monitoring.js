@@ -124,7 +124,14 @@ require([
                   const url = URL.createObjectURL(blob);
                   // create new geojson layer using the blob url
                   const floodArea = new GeoJSONLayer({
-                    url: url
+                    url: url,
+                    renderer: {
+                      type: "simple",  // autocasts as new SimpleRenderer()
+                      symbol: {
+                        type: "simple-fill",  // autocasts as new SimpleMarkerSymbol()
+                        color: [52, 235, 232, 0.3],
+                      }
+                    }
                   });
                   
                   view.goTo({
@@ -133,8 +140,9 @@ require([
                   }, {
                     duration: 1000
                   }); // Zooms to selected flood alert station
-
+                  map.layers.removeAll()
                   map.layers.add(floodArea)
+                  map.layers.add(layer)
                 });
               }
               // Represents the way that this action will be displayed on the popup window
