@@ -263,8 +263,13 @@ body {
   bottom: 30%;
   left: 35%;
   z-index: 2;
+  border: var(--text-color) solid 1px;
 }
 
+#flood{
+  background: url("../media/flood-card-background.png") no-repeat center center;
+  background-size: contain;
+}
 /* End of Monitoring.html Styling */
 /* Start of Footer Styling */
 .footer-dark {
