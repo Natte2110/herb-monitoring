@@ -3,13 +3,15 @@ require([
   "esri/views/MapView",
   "esri/layers/FeatureLayer",
   "esri/geometry/Point",
-  "esri/core/reactiveUtils"
+  "esri/core/reactiveUtils",
+  "esri/layers/GeoJSONLayer"
 ], function (
   Map,
   MapView,
   FeatureLayer,
   Point,
-  reactiveUtils) {
+  reactiveUtils,
+  GeoJSONLayer) {
 
   const getData = (url) => {
     return fetch(url)
@@ -113,7 +115,20 @@ require([
                 /**
                  * This function will be used to display the flood area of the alert to the user.
                  */
-                console.log(view.popup.features[0].attributes.polygon)
+                let polygon = view.popup.features[0].attributes.polygon
+                getData(polygon).then(response => {
+                  // create a new blob from geojson to be used in the layer
+                  const blob = new Blob([JSON.stringify(response)], {
+                    type: "application/json"
+                  });
+                  const url = URL.createObjectURL(blob);
+                  // create new geojson layer using the blob url
+                  const floodArea = new GeoJSONLayer({
+                    url: url
+                  });
+                  
+                  map.layers.add(floodArea)
+                });
               }
               // Represents the way that this action will be displayed on the popup window
               const showPolygonAction = {
