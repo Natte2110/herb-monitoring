@@ -53,7 +53,7 @@ require([
               // console.log(itemsSeverity)
               let merged = [];
 
-              for(let i=0; i<itemsSeverity.length; i++) {
+              for (let i = 0; i < itemsSeverity.length; i++) {
                 if (itemsSeverity[i].severityLevel) {
                   itemsLocation.forEach(item => {
                     if (item.fwdCode === itemsSeverity[i].floodAreaID) {
@@ -61,23 +61,23 @@ require([
                       item.severity = itemsSeverity[i].severity
                       item.timeMessageChanged = itemsSeverity[i].timeMessageChanged
                       merged.push(item);
-                    } 
+                    }
                   });
                 }
               }
-              
+
               let features = []; // Empty array that the points will be put into
               let x = 1; //Used for incrementing object ID's
 
               merged.forEach(item => {
                 features.push({
                   geometry: new Point({ x: item.long, y: item.lat }),
-                  attributes: { 
-                    ObjectID: x, 
-                    County: item.County, 
+                  attributes: {
+                    ObjectID: x,
+                    County: item.County,
                     description: item.description,
                     eaAreaName: item.eaAreaName,
-                    fwdCode: item.fwdCode, 
+                    fwdCode: item.fwdCode,
                     severityLevel: item.severityLevel,
                     severity: item.severity,
                     polygon: item.polygon,
@@ -90,7 +90,7 @@ require([
                 const div = document.createElement("div");
                 div.innerHTML =
                   `<p>${feature.graphic.attributes.description}</p>
-                  <p>This station has a severity level of <b>${feature.graphic.attributes.severityLevel}</b>, with a desciption of <b>${feature.graphic.attributes.severityLevel}</b></p>
+                  <p>This station has a severity level of <b>${feature.graphic.attributes.severityLevel}</b>, with a desciption of <b>"${feature.graphic.attributes.severity}"</b></p>
                   `
                 return div;
               }
@@ -102,42 +102,46 @@ require([
                   name: "ObjectID",
                   alias: "ObjectID",
                   type: "oid"
-              }, {
+                }, {
                   name: "County",
                   alias: "County",
                   type: "string"
-              },
-              {
+                },
+                {
                   name: "description",
                   alias: "description",
                   type: "string"
-              },
-              {
+                },
+                {
                   name: "eaAreaName",
                   alias: "eaAreaName",
                   type: "string"
-              },
-              {
+                },
+                {
                   name: "fwdCode",
                   alias: "fwdCode",
                   type: "string"
-              },
-              {
+                },
+                {
                   name: "severityLevel",
                   alias: "severityLevel",
                   type: "string"
-              },
-              {
+                },
+                {
                   name: "severity",
                   alias: "severity",
                   type: "string"
-              },
-              {
+                },
+                {
                   name: "polygon",
                   alias: "polygon",
                   type: "string"
-              }],
-                
+                }],
+                popupTemplate: {
+                  title: "{eaAreaName}",
+                  content: popupCreation,
+                  outFields: ["*"],
+                }
               });
               map.layers.add(layer);
             })
