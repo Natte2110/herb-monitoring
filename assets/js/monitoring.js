@@ -133,7 +133,7 @@ require([
                       }
                     }
                   });
-                  
+
                   view.goTo({
                     target: view.popup.features[0],
                     zoom: 12
@@ -244,11 +244,60 @@ require([
 
         });
     }
-    if (id === "flood") {
-      floodMap();
+
+    const weatherMap = () => {
+      const apiKey = 'cd728bac-11c4-48d4-b7d1-42248c13f9fe'
+      getData(`http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/json/sitelist?key=${apiKey}`).then(response => {
+
+        const stationsData = response.Locations.Location;
+        console.log(stationsData)
+
+        let features = []; // Empty array that the points will be put into
+        let x = 1; //Used for incrementing object ID's
+
+        stationsData.forEach(item => {
+          features.push({
+            geometry: new Point({ x: item.longitude, y: item.latitude }),
+            attributes: {
+              ObjectID: x,
+              id: item.id,
+              name: item.name,
+              unitaryAuthArea: item.unitaryAuthArea,
+            }
+          })
+          x++ // Increment for the object ID's
+        })
+
+        let layer = new FeatureLayer({
+          source: features,  // autocast as a Collection of new Graphic()
+          objectIdField: "ObjectID",
+          fields: [{
+            name: "ObjectID",
+            alias: "ObjectID",
+            type: "oid"
+          }, {
+            name: "id",
+            alias: "id",
+            type: "string"
+          },
+          {
+            name: "name",
+            alias: "name",
+            type: "string"
+          },
+          {
+            name: "unitaryAuthArea",
+            alias: "unitaryAuthArea",
+            type: "string"
+          }],
+          opacity: 0.5
+        });
+        map.layers.add(layer);
+      })
+
     }
-
-
+    if (id === "flood") { floodMap() };
+    if (id === "weather") { weatherMap() };
   }
   monitoringChoices.addEventListener("click", function (event) {
     /**
