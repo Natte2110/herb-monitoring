@@ -86,6 +86,15 @@ require([
                 x++ // Increment for the object ID's
               })
 
+              const popupCreation = (feature) => {
+                const div = document.createElement("div");
+                div.innerHTML =
+                  `<p>${feature.graphic.attributes.description}</p>
+                  <p>This station has a severity level of <b>${feature.graphic.attributes.severityLevel}</b>, with a desciption of <b>${feature.graphic.attributes.severityLevel}</b></p>
+                  `
+                return div;
+              }
+
               let layer = new FeatureLayer({
                 source: features,  // autocast as a Collection of new Graphic()
                 objectIdField: "ObjectID",
