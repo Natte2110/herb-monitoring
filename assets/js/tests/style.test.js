@@ -23,7 +23,7 @@ describe("Dynamic Style Effects", () => {
             navColourChange(300);
             expect(document.getElementById("site-nav").style.backgroundColor).toEqual("rgb(40, 45, 50)");
         })
-        test("Expect navbar to change to an opaque background", () => {
+        test("Expect navbar to change to an opacity of 2/3 the max value", () => {
             navColourChange(200);
             let expectedOpacity = 200/300
             expect(document.getElementById("site-nav").style.backgroundColor).toEqual("rgba(40, 45, 50, " + expectedOpacity + ")");
