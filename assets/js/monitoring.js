@@ -39,6 +39,8 @@ require([
   const cardClasses = ["top-card", "middle-card", "bottom-card"]
   const monitoringChoices = document.getElementById("monitoring-items");
 
+  document.getElementById('site-nav').style.backgroundColor = "rgb(40, 45, 50)";
+  
   const displayMap = (id) => {
     /**
      * This function creates a map with the given monitoring layer and displays it in the "monitoring-map" div.
