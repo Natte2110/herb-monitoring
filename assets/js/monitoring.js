@@ -19,7 +19,6 @@ require([
     return fetch(url)
       .then((response) => response.json())
       .then((responseData) => {
-        console.log(responseData);
         return responseData;
       })
       .catch(error => console.warn(error));
@@ -59,7 +58,6 @@ require([
           getData("https://environment.data.gov.uk/flood-monitoring/id/floods")
             .then(response => {
               let itemsSeverity = response.items;
-              // console.log(itemsSeverity)
               let merged = [];
 
               for (let i = 0; i < itemsSeverity.length; i++) {
@@ -131,9 +129,9 @@ require([
                   const floodArea = new GeoJSONLayer({
                     url: url,
                     renderer: {
-                      type: "simple",  // autocasts as new SimpleRenderer()
+                      type: "simple", 
                       symbol: {
-                        type: "simple-fill",  // autocasts as new SimpleMarkerSymbol()
+                        type: "simple-fill",
                         color: [52, 235, 232, 0.3],
                       }
                     }
@@ -239,8 +237,6 @@ require([
               };
               map.layers.add(layer);
             })
-
-
         });
     }
 
@@ -249,7 +245,6 @@ require([
       getData(`http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/json/sitelist?key=${apiKey}`).then(response => {
 
         const stationsData = response.Locations.Location;
-        console.log(stationsData)
 
         let features = []; // Empty array that the points will be put into
         let x = 1; //Used for incrementing object ID's
@@ -375,7 +370,6 @@ require([
           let features = [];
           let x = 1;
           trafficReports.forEach(item => {
-            // console.log(item)
             features.push({
               geometry: new Point({ x: item.point.coordinates[1], y: item.point.coordinates[0] }),
               attributes: {
