@@ -6,7 +6,9 @@ require([
   "esri/core/reactiveUtils",
   "esri/layers/GeoJSONLayer",
   "esri/widgets/BasemapToggle",
-  "esri/widgets/Home"
+  "esri/widgets/Home",
+  "esri/widgets/Locate",
+  "esri/widgets/Search"
 ], function (
   Map,
   MapView,
@@ -15,7 +17,9 @@ require([
   reactiveUtils,
   GeoJSONLayer,
   BasemapToggle,
-  Home) {
+  Home,
+  Locate,
+  Search) {
 
   const getData = (url) => {
     return fetch(url)
@@ -58,6 +62,19 @@ require([
       view: view
     });
     view.ui.add(viewReset, "top-left");
+
+    let locateWidget = new Locate({
+      view: view,   // Attaches the Locate button to the view
+    });
+    view.ui.add(locateWidget, "top-left");
+
+    const searchWidget = new Search({
+      view: view
+    });
+    view.ui.add(searchWidget, {
+      position: "top-left",
+      index: 0
+    });
 
     view.ui.add(monitoringChoices, "bottom-right");
     let infoDiv = document.getElementById("information");
