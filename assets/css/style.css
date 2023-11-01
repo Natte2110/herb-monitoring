@@ -233,12 +233,14 @@ body {
   height: 100px;
   border-radius: 20px;
   display: table;
-  &:hover {
-    translate: 0 -5%;
-    transition: translate 0.5s;
-    z-index: 10;
-  }
+  transition: transform 0.5s;
 }
+
+.monitoring-switch:hover {
+  transform: translateY(-10%);
+  z-index: 10;
+}
+
 .monitoring-switch h1 {
   width: 100%;
   display: table-cell;
