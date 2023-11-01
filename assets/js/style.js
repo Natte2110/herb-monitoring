@@ -12,7 +12,8 @@ const navColourChange = (scrollValue) => {
 }
 
 const backgroundBlurChange = (scrollValue) => {
-    document.getElementById("site-nav").style.filter = "blur(10px)";
+    let blur = 10 * (scrollValue / 600);
+    document.getElementById("site-nav").style.filter = "blur(" + blur + "px)";
 }
 
 module.exports = {navColourChange, backgroundBlurChange};
