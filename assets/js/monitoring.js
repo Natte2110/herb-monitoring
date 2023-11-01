@@ -24,6 +24,10 @@ require([
       .catch(error => console.warn(error));
   }
 
+  const updateInfo = (info) => {
+    let div = document.getElementById("information");
+    div.innerHTML = info;
+  }
   const cardClasses = ["top-card", "middle-card", "bottom-card"]
   const monitoringChoices = document.getElementById("monitoring-items");
 
@@ -57,6 +61,11 @@ require([
 
           getData("https://environment.data.gov.uk/flood-monitoring/id/floods")
             .then(response => {
+              updateInfo(`
+                <h1>Flood Alerts</h1>
+                <p>This map displays potential flood alerts</p>
+                <p>Click on any monitoring station on the map to display it's information and to show the potential flooding area</p>
+              `)
               let itemsSeverity = response.items;
               let merged = [];
 
@@ -97,7 +106,9 @@ require([
               const popupCreation = (feature) => {
                 const div = document.createElement("div");
                 div.innerHTML =
-                  `<p>${feature.graphic.attributes.description}</p>
+                  `
+                  <p>Click the buttons above to display the possible flood area</p>
+                  <p>${feature.graphic.attributes.description}</p>
                   <p>This station has a severity level of <b>${feature.graphic.attributes.severityLevel}</b>, with a desciption of <b>"${feature.graphic.attributes.severity}".</b></p>
                   <p>This warning was last updated - <b>${feature.graphic.attributes.timeMessageChanged}</b></p>
                   `
