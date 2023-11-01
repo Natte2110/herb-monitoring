@@ -65,5 +65,21 @@ describe("Dynamic Style Effects", () => {
             backgroundBlurChange(700);
             expect(document.getElementById("site-nav").style.filter).toEqual("blur(10px)");
         });
+        test("Expect value change dynamically when window is scrolled", () => {
+            // event listener for when the window is scrolled
+            window.addEventListener('scroll', () => {
+                backgroundBlurChange(document.documentElement.scrollTop);
+            });
+
+            // Send a scroll event to the mock dom
+            const scrollEvent = new Event('scroll');
+            window.dispatchEvent(scrollEvent);
+
+            // Get the expected opacity of the new background
+            let expectedBlur = 10 * (document.documentElement.scrollTop  / 600);
+            expectedBlur >= 10 ? expectedBlur = 10 : expectedBlur = expectedBlur;
+
+            expect(document.getElementById("site-nav").style.filter).toEqual("blur(" + expectedBlur + "px)");
+        });
     });
 });
