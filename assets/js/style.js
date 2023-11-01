@@ -11,4 +11,8 @@ const navColourChange = (scrollValue) => {
     document.getElementById("site-nav").style.backgroundColor = "rgba(40, 45, 50, " + opacity + ")"
 }
 
-// module.exports = {navColourChange};
+const backgroundBlurChange = (scrollValue) => {
+    
+}
+
+module.exports = {navColourChange, backgroundBlurChange};
