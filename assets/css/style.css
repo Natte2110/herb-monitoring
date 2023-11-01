@@ -276,6 +276,12 @@ body {
   background: url("../media/weather-card-background.png") no-repeat center center;
   background-size: cover;
 }
+
+#traffic{
+  background: url("../media/traffic-card-background.png") no-repeat center center;
+  background-size: cover;
+}
+
 .weather-table{
   width: 100%;
 }
