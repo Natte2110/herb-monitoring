@@ -4,14 +4,16 @@ require([
   "esri/layers/FeatureLayer",
   "esri/geometry/Point",
   "esri/core/reactiveUtils",
-  "esri/layers/GeoJSONLayer"
+  "esri/layers/GeoJSONLayer",
+  "esri/symbols/WebStyleSymbol"
 ], function (
   Map,
   MapView,
   FeatureLayer,
   Point,
   reactiveUtils,
-  GeoJSONLayer) {
+  GeoJSONLayer,
+  WebStyleSymbol) {
 
   const getData = (url) => {
     return fetch(url)
@@ -291,6 +293,7 @@ require([
             const rows = params.map(generateTableRow).join("");
             
             div.innerHTML = `
+                <p>Please see today's weather report below</p>
                 <table class="weather-table">
                   <tr>
                     <th>Title</th>
@@ -303,7 +306,7 @@ require([
 
           return div;
         }
-
+        
         let layer = new FeatureLayer({
           source: features,  // autocast as a Collection of new Graphic()
           objectIdField: "ObjectID",
@@ -330,6 +333,18 @@ require([
             title: "{name}",
             content: popupCreation,
             outFields: ["*"]
+          },
+          renderer: {
+            type: "simple",  // autocasts as new SimpleRenderer()
+            symbol: {
+              type: "simple-marker",  // autocasts as new SimpleMarkerSymbol()
+              size: 6,
+              color: "blue",
+              outline: {  // autocasts as new SimpleLineSymbol()
+                width: 0.5,
+                color: "white"
+              }
+            }
           },
           opacity: 0.5
         });
