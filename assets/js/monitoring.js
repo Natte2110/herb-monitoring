@@ -352,6 +352,25 @@ require([
     const trafficMap = () => {
       getData("https://dev.virtualearth.net/REST/v1/Traffic/Incidents/49.053718,%20-10.617814,59.750557,%201.719574?key=AuM3m0_KAmQfqGO_JP0EZxptg28hb51uKRQBmECaiMnaiw0IPPjF1KlQ77JWPTU4")
         .then(response => {
+          const incidentTypes = {
+            1: "Accident",
+            2: "Congestion",
+            3: "Disabled Vehicle",
+            4: "Mass Transit",
+            5: "Miscellaneous",
+            6: "Other News",
+            7: "Planned Event",
+            8: "Road Hazard",
+            9: "Construction",
+            10: "Alert",
+            11: "Weather",
+          };
+          const incidentSeverity = {
+            1: "Low Impact",
+            2: "Minor",
+            3: "Moderate",
+            4: "Serious",
+          };
           let trafficReports = response.resourceSets[0].resources
           let features = [];
           let x = 1;
@@ -362,15 +381,12 @@ require([
               attributes: {
                 ObjectID: x,
                 description: item.description,
-                start: item.start,
-                end: item.end,
-                lastModified: item.lastModified,
                 roadClosed: item.roadClosed,
                 severity: item.severity,
-                severityScore: item.severityScore,
-                type: item.type,
+                severityScore: incidentSeverity[item.severity],
+                type: incidentTypes[item.type],
                 title: item.title,
-                icon: item.icon,
+                icon: item.icon
               }
             })
             x++ // Increment for the object ID's
@@ -409,6 +425,17 @@ require([
             }
           });
           map.layers.add(heatmapLayer);
+
+          const popupCreation = (feature) => {
+            const div = document.createElement("div");
+            div.innerHTML =
+              `<p>${feature.graphic.attributes.description}</p>
+              <p>This report has been declared as <b>${feature.graphic.attributes.type}</b>, with a severity of <b>${feature.graphic.attributes.severityScore}.</b></p>
+              <p>Road Closed - <b>${feature.graphic.attributes.roadClosed}</b></p>
+              `
+            return div;
+          }
+
           let layer = new FeatureLayer({
             source: features,
             objectIdField: "ObjectID",
@@ -419,21 +446,6 @@ require([
             }, {
               name: "description",
               alias: "description",
-              type: "string"
-            },
-            {
-              name: "start",
-              alias: "start",
-              type: "string"
-            },
-            {
-              name: "end",
-              alias: "end",
-              type: "string"
-            },
-            {
-              name: "lastModified",
-              alias: "lastModified",
               type: "string"
             },
             {
@@ -467,6 +479,11 @@ require([
               type: "string"
             }],
             minScale: 1000000,
+            popupTemplate: {
+              title: "{title}",
+              content: popupCreation,
+              outFields: ["*"]
+            },
             renderer: {
               type: "unique-value",
               field: "severity",
