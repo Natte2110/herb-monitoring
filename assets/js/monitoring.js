@@ -235,12 +235,6 @@ require([
                     type: "simple-marker",
                     color: "orange"
                   }
-                }, {
-                  value: "West",
-                  symbol: {
-                    type: "simple-marker",
-                    color: "red"
-                  }
                 }],
               };
               map.layers.add(layer);
@@ -381,6 +375,40 @@ require([
           })
           x++ // Increment for the object ID's
         })
+        let heatmapLayer = new FeatureLayer({
+          source: features,
+          objectIdField: "ObjectID",
+          fields: [{
+            name: "ObjectID",
+            alias: "ObjectID",
+            type: "oid"
+          },
+          {
+            name: "severity",
+            alias: "severity",
+            type: "string"
+          }],
+          renderer: {
+            type: "heatmap",
+            field: "severity",
+            colorStops: [
+              { ratio: 0, color: "rgba(255, 255, 255, 0)" },
+              { ratio: 1, color: "rgba(255, 67, 14, 0.7)" },
+              { ratio: 0.8, color: "rgba(255, 145, 14, 0.7)" },
+              { ratio: 0.5, color: "rgba(246, 207, 8, 0.7)" },
+              { ratio: 0.2, color: "rgba(237, 243, 2, 0.7)" }
+            ],
+            minDensity: 0,
+            maxDensity: 0.3,
+            radius: 15,
+            legendOptions: {
+                title: "Traffic",
+                minLabel: "Less Traffic",
+                maxLabel: "More Traffic"
+            }
+        }
+      });
+      map.layers.add(heatmapLayer);
         let layer = new FeatureLayer({
           source: features,
           objectIdField: "ObjectID",
@@ -438,17 +466,36 @@ require([
             alias: "icon",
             type: "string"
           }],
+          minScale: 1000000,
           renderer: {
-            type: "simple", 
-            symbol: {
-              type: "simple-marker",
-              size: 10,
-              color: [50,211,211],
-              outline: {
-                width: 0.5,
-                color: "white"
+            type: "unique-value",
+            field: "severity",
+            defaultSymbol: { type: "simple-marker" },
+            uniqueValueInfos: [{
+              value: "4",
+              symbol: {
+                type: "simple-marker",
+                color: "red"
               }
-            }
+            }, {
+              value: "3",
+              symbol: {
+                type: "simple-marker",
+                color: "orange"
+              }
+            }, {
+              value: "2",
+              symbol: {
+                type: "simple-marker",
+                color: "yellow"
+              }
+            }, {
+              value: "1",
+              symbol: {
+                type: "simple-marker",
+                color: "green"
+              }
+            }],
           },
           opacity: 0.5
         });
