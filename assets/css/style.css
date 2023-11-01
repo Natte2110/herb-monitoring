@@ -270,6 +270,14 @@ body {
   background: url("../media/flood-card-background.png") no-repeat center center;
   background-size: contain;
 }
+
+.weather-table{
+  width: 100%;
+}
+.weather-table tr{
+  border: white 1px solid;
+  margin: 5px;
+}
 /* End of Monitoring.html Styling */
 /* Start of Footer Styling */
 .footer-dark {
