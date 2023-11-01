@@ -268,6 +268,42 @@ require([
           x++ // Increment for the object ID's
         })
 
+        const popupCreation = (feature) => {
+          const div = document.createElement("div");
+          getData(`http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/${feature.graphic.attributes.id}?res=daily&key=${apiKey}`).then(response => {
+            let params = response.SiteRep.Wx.Param;
+            let reports = response.SiteRep.DV.Location.Period
+
+            let todayDay = response.SiteRep.DV.Location.Period[0].Rep[0];
+            let todayNight = response.SiteRep.DV.Location.Period[0].Rep[1];
+            let unitReplace = {"C":"°C","compass":"","mph":" mph","%":"%","":""}
+            function generateTableRow(param) {
+              if (todayDay[param.name]) {
+                return `
+                <tr>
+                  <td>${param.$}</td>
+                  <td>${todayDay[param.name]}${unitReplace[param.units]}</td>
+                </tr>
+              `;
+              }
+            }
+            
+            const rows = params.map(generateTableRow).join("");
+            
+            div.innerHTML = `
+                <table class="weather-table">
+                  <tr>
+                    <th>Title</th>
+                    <th>Value</th>
+                  </tr>
+                  ${rows}
+                </table>
+              `;
+          }).catch(error => { div.innerHTML = "<p>Cannot gather weather information" })
+
+          return div;
+        }
+
         let layer = new FeatureLayer({
           source: features,  // autocast as a Collection of new Graphic()
           objectIdField: "ObjectID",
@@ -290,6 +326,11 @@ require([
             alias: "unitaryAuthArea",
             type: "string"
           }],
+          popupTemplate: {
+            title: "{name}",
+            content: popupCreation,
+            outFields: ["*"]
+          },
           opacity: 0.5
         });
         map.layers.add(layer);
