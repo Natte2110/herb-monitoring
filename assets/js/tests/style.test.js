@@ -48,4 +48,9 @@ describe("Dynamic Style Effects", () => {
             expect(document.getElementById("site-nav").style.backgroundColor).toEqual("rgba(40, 45, 50, " + expectedOpacity + ")");
         });
     });
+    describe("Landing Image Blurring", () => {
+        test("Expect No blur when page loaded", () => {
+            expect(document.getElementsByClassName("landing-image")[0].style.backgroundColor).toEqual("");
+        });
+    });
 });
