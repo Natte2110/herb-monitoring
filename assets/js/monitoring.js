@@ -350,7 +350,6 @@ require([
         });
         map.layers.add(layer);
       })
-
     }
     if (id === "flood") { floodMap() };
     if (id === "weather") { weatherMap() };
