@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const { navColourChange } = require("../style")
+const { navColourChange, backgroundBlurChange} = require("../style")
 
 beforeEach(() => {
     const fs = require('fs');
@@ -51,6 +51,10 @@ describe("Dynamic Style Effects", () => {
     describe("Landing Image Blurring", () => {
         test("Expect No blur when page loaded", () => {
             expect(document.getElementsByClassName("landing-image")[0].style.backgroundColor).toEqual("");
+        });
+        test("Expect blur to be 10px when page scrolled to 600", () => {
+            backgroundBlurChange(600);
+            expect(document.getElementById("site-nav").style.filter).toEqual("blur(10px)");
         });
     });
 });
