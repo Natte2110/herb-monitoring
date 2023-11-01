@@ -291,7 +291,7 @@ body {
 }
 
 #information{
-  width: 30%;
+  width: 35%;
   background-color: var(--accent-color);
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -299,12 +299,14 @@ body {
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     text-align: center;
   display: none;
+  color: var(--text-color);
+  padding: 10px;
 }
 
 #information h1{
-  color: var(--text-color);
   margin: 10px;
   font-size: 1rem;
+  font-weight: 700;
 }
 /* End of Monitoring.html Styling */
 /* Start of Footer Styling */
