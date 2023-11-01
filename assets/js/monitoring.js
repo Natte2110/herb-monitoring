@@ -5,7 +5,8 @@ require([
   "esri/geometry/Point",
   "esri/core/reactiveUtils",
   "esri/layers/GeoJSONLayer",
-  "esri/widgets/BasemapToggle"
+  "esri/widgets/BasemapToggle",
+  "esri/widgets/Home"
 ], function (
   Map,
   MapView,
@@ -13,7 +14,8 @@ require([
   Point,
   reactiveUtils,
   GeoJSONLayer,
-  BasemapToggle) {
+  BasemapToggle,
+  Home) {
 
   const getData = (url) => {
     return fetch(url)
@@ -52,12 +54,17 @@ require([
     });
     view.ui.add(basemapToggle, "bottom-left");
 
+    let viewReset = new Home({
+      view: view
+    });
+    view.ui.add(viewReset, "top-left");
+
     view.ui.add(monitoringChoices, "bottom-right");
     let infoDiv = document.getElementById("information");
     view.ui.add(infoDiv, "top-right");
     infoDiv.style.display = "block";
     monitoringChoices.style.display = "block";
-    
+
     const floodMap = () => {
       /**
        * This function is used to create the layers and required items for the flood monitoring map
