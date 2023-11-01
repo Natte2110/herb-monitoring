@@ -131,7 +131,7 @@ body {
 }
 
 .header-title h1 {
-  font-size: 5rem;
+  font-size: 4em;
   line-height: 1.42857143;
   color: var(--text-color);
   font-weight: 300;
@@ -308,6 +308,11 @@ body {
   font-size: 1rem;
   font-weight: 700;
 }
+.esri-view-width-xsmall .esri-expand--auto .esri-expand__container--expanded {
+  background: var(--accent-color)!important;
+  top: 56px!important;
+  z-index: 3!important;
+}
 /* End of Monitoring.html Styling */
 /* Start of Footer Styling */
 .footer-dark {
@@ -359,6 +364,7 @@ body {
 
 .footer-dark .item.text {
   margin-bottom: 36px;
+  margin-top: 36px;
 }
 
 .footer-dark .item.text li {
