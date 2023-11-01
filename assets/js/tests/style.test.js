@@ -54,16 +54,16 @@ describe("Dynamic Style Effects", () => {
         });
         test("Expect blur to be 10px when page scrolled to 600", () => {
             backgroundBlurChange(600);
-            expect(document.getElementById("site-nav").style.filter).toEqual("blur(10px)");
+            expect(document.getElementsByClassName("landing-image")[0].style.filter).toEqual("blur(10px)");
         });
         test("Expect blur value to be 5px at a scroll value of 300", () => {
             backgroundBlurChange(300);
             let expectedBlur = 10 * (300 / 600);
-            expect(document.getElementById("site-nav").style.filter).toEqual("blur(" + expectedBlur + "px)");
+            expect(document.getElementsByClassName("landing-image")[0].style.filter).toEqual("blur(" + expectedBlur + "px)");
         });
         test("Expect blur value to still be 10px over the max scroll value of 600", () => {
             backgroundBlurChange(700);
-            expect(document.getElementById("site-nav").style.filter).toEqual("blur(10px)");
+            expect(document.getElementsByClassName("landing-image")[0].style.filter).toEqual("blur(10px)");
         });
         test("Expect value change dynamically when window is scrolled", () => {
             // event listener for when the window is scrolled
@@ -79,7 +79,7 @@ describe("Dynamic Style Effects", () => {
             let expectedBlur = 10 * (document.documentElement.scrollTop  / 600);
             expectedBlur >= 10 ? expectedBlur = 10 : expectedBlur = expectedBlur;
 
-            expect(document.getElementById("site-nav").style.filter).toEqual("blur(" + expectedBlur + "px)");
+            expect(document.getElementsByClassName("landing-image")[0].style.filter).toEqual("blur(" + expectedBlur + "px)");
         });
     });
 });
