@@ -354,8 +354,68 @@ require([
         map.layers.add(layer);
       })
     }
+
+    const trafficMap = () => {
+      getData("https://dev.virtualearth.net/REST/v1/Traffic/Incidents/49.053718,%20-10.617814,59.750557,%201.719574?key=AuM3m0_KAmQfqGO_JP0EZxptg28hb51uKRQBmECaiMnaiw0IPPjF1KlQ77JWPTU4")
+      .then(response => {
+        let trafficReports = response.resourceSets[0].resources
+        let features = [];
+        let x = 1;
+        trafficReports.forEach(item => {
+          // console.log(item)
+          features.push({
+            geometry: new Point({ x: item.point.coordinates[1], y: item.point.coordinates[0] }),
+            attributes: {
+              ObjectID: x,
+              id: item.id,
+              name: item.name,
+              unitaryAuthArea: item.unitaryAuthArea,
+            }
+          })
+          x++ // Increment for the object ID's
+        })
+        let layer = new FeatureLayer({
+          source: features,  // autocast as a Collection of new Graphic()
+          objectIdField: "ObjectID",
+          fields: [{
+            name: "ObjectID",
+            alias: "ObjectID",
+            type: "oid"
+          }, {
+            name: "id",
+            alias: "id",
+            type: "string"
+          },
+          {
+            name: "name",
+            alias: "name",
+            type: "string"
+          },
+          {
+            name: "unitaryAuthArea",
+            alias: "unitaryAuthArea",
+            type: "string"
+          }],
+          renderer: {
+            type: "simple", 
+            symbol: {
+              type: "simple-marker",
+              size: 10,
+              color: [50,211,211],
+              outline: {
+                width: 0.5,
+                color: "white"
+              }
+            }
+          },
+          opacity: 0.5
+        });
+        map.layers.add(layer);
+      })
+    }
     if (id === "flood") { floodMap() };
     if (id === "weather") { weatherMap() };
+    if (id === "traffic") { trafficMap() };
   }
   monitoringChoices.addEventListener("click", function (event) {
     /**
