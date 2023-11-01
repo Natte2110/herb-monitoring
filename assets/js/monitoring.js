@@ -8,7 +8,8 @@ require([
   "esri/widgets/BasemapToggle",
   "esri/widgets/Home",
   "esri/widgets/Locate",
-  "esri/widgets/Search"
+  "esri/widgets/Search",
+  "esri/widgets/Expand"
 ], function (
   Map,
   MapView,
@@ -19,8 +20,9 @@ require([
   BasemapToggle,
   Home,
   Locate,
-  Search) {
-
+  Search,
+  Expand) {
+  
   const getData = (url) => {
     return fetch(url)
       .then((response) => response.json())
@@ -41,6 +43,25 @@ require([
     /**
      * This function creates a map with the given monitoring layer and displays it in the "monitoring-map" div.
      */
+   
+    const addInfoDiv = () => {
+      let screenWidth = screen.width;
+      let infoExpanded = false;
+      
+      if (screenWidth <= 720 && infoExpanded === false ) {
+        view.ui.remove(infoDiv)
+        view.ui.add(expandInfo, "top-right");
+        infoDiv.style.width = "100%";
+        infoExpanded = true;
+      } else {
+        view.ui.remove(expandInfo)
+        view.ui.add(infoDiv, "top-right");
+        infoDiv.style.width = "35%";
+        infoExpanded = false;
+      }
+      infoDiv.style.display = "block";
+    }
+
     const map = new Map({
       basemap: "dark-gray-vector" // basemap styles service
     });
@@ -77,9 +98,17 @@ require([
     });
 
     view.ui.add(monitoringChoices, "bottom-right");
+    
+    window.addEventListener('resize', addInfoDiv);
     let infoDiv = document.getElementById("information");
-    view.ui.add(infoDiv, "top-right");
-    infoDiv.style.display = "block";
+
+    const expandInfo = new Expand({
+      view: view,
+      content: infoDiv,
+      expanded: false,
+      expandIconClass: "esri-icon-notice-round"
+    });
+    addInfoDiv();
     monitoringChoices.style.display = "block";
 
     const floodMap = () => {
@@ -172,7 +201,7 @@ require([
                   const floodArea = new GeoJSONLayer({
                     url: url,
                     renderer: {
-                      type: "simple", 
+                      type: "simple",
                       symbol: {
                         type: "simple-fill",
                         color: [52, 235, 232, 0.3],
