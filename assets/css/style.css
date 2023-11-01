@@ -314,6 +314,11 @@ body {
   top: 56px!important;
   z-index: 3!important;
 }
+
+.esri-ui .esri-popup{
+  z-index: 3!important;
+}
+
 /* End of Monitoring.html Styling */
 /* Start of Footer Styling */
 .footer-dark {
