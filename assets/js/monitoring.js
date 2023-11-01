@@ -367,33 +367,75 @@ require([
             geometry: new Point({ x: item.point.coordinates[1], y: item.point.coordinates[0] }),
             attributes: {
               ObjectID: x,
-              id: item.id,
-              name: item.name,
-              unitaryAuthArea: item.unitaryAuthArea,
+              description: item.description,
+              start: item.start,
+              end: item.end,
+              lastModified: item.lastModified,
+              roadClosed: item.roadClosed,
+              severity: item.severity,
+              severityScore: item.severityScore,
+              type: item.type,
+              title: item.title,
+              icon: item.icon,
             }
           })
           x++ // Increment for the object ID's
         })
         let layer = new FeatureLayer({
-          source: features,  // autocast as a Collection of new Graphic()
+          source: features,
           objectIdField: "ObjectID",
           fields: [{
             name: "ObjectID",
             alias: "ObjectID",
             type: "oid"
           }, {
-            name: "id",
-            alias: "id",
+            name: "description",
+            alias: "description",
             type: "string"
           },
           {
-            name: "name",
-            alias: "name",
+            name: "start",
+            alias: "start",
             type: "string"
           },
           {
-            name: "unitaryAuthArea",
-            alias: "unitaryAuthArea",
+            name: "end",
+            alias: "end",
+            type: "string"
+          },
+          {
+            name: "lastModified",
+            alias: "lastModified",
+            type: "string"
+          },
+          {
+            name: "roadClosed",
+            alias: "roadClosed",
+            type: "string"
+          },
+          {
+            name: "severity",
+            alias: "severity",
+            type: "string"
+          },
+          {
+            name: "severityScore",
+            alias: "severityScore",
+            type: "string"
+          },
+          {
+            name: "type",
+            alias: "type",
+            type: "string"
+          },
+          {
+            name: "title",
+            alias: "title",
+            type: "string"
+          },
+          {
+            name: "icon",
+            alias: "icon",
             type: "string"
           }],
           renderer: {
