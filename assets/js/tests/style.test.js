@@ -61,5 +61,9 @@ describe("Dynamic Style Effects", () => {
             let expectedBlur = 10 * (300 / 600);
             expect(document.getElementById("site-nav").style.filter).toEqual("blur(" + expectedBlur + "px)");
         });
+        test("Expect blur value to still be 10px over the max scroll value of 600", () => {
+            backgroundBlurChange(700);
+            expect(document.getElementById("site-nav").style.filter).toEqual("blur(10px)");
+        });
     });
 });
