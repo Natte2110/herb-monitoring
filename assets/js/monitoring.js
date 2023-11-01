@@ -5,7 +5,7 @@ require([
   "esri/geometry/Point",
   "esri/core/reactiveUtils",
   "esri/layers/GeoJSONLayer",
-  "esri/symbols/WebStyleSymbol"
+  "esri/widgets/BasemapToggle"
 ], function (
   Map,
   MapView,
@@ -13,7 +13,7 @@ require([
   Point,
   reactiveUtils,
   GeoJSONLayer,
-  WebStyleSymbol) {
+  BasemapToggle) {
 
   const getData = (url) => {
     return fetch(url)
@@ -45,11 +45,19 @@ require([
       zoom: 5, // Zoom level
       container: "monitoring-map" // Div element
     });
-    view.ui.add(monitoringChoices, "bottom-right")
+
+    let basemapToggle = new BasemapToggle({
+      view: view,
+      nextBasemap: "satellite"
+    });
+    view.ui.add(basemapToggle, "bottom-left");
+
+    view.ui.add(monitoringChoices, "bottom-right");
     let infoDiv = document.getElementById("information");
     view.ui.add(infoDiv, "top-right");
     infoDiv.style.display = "block";
     monitoringChoices.style.display = "block";
+    
     const floodMap = () => {
       /**
        * This function is used to create the layers and required items for the flood monitoring map
@@ -252,6 +260,11 @@ require([
     }
 
     const weatherMap = () => {
+      updateInfo(`
+                <h1>Weather Monitoring</h1>
+                <p>This map displays Weather Stations</p>
+                <p>Click on any monitoring station on the map to display today's forcast for that site</p>
+              `)
       const apiKey = 'cd728bac-11c4-48d4-b7d1-42248c13f9fe'
       getData(`http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/json/sitelist?key=${apiKey}`).then(response => {
 
@@ -356,6 +369,12 @@ require([
     }
 
     const trafficMap = () => {
+      updateInfo(`
+                <h1>Traffic Incidents</h1>
+                <p>This map displays reports of traffic incidents</p>
+                <p>To begin, zoom in to the location you wish to check</p>
+                <p>Then, click on any report to view further information about it</p>
+              `)
       getData("https://dev.virtualearth.net/REST/v1/Traffic/Incidents/49.053718,%20-10.617814,59.750557,%201.719574?key=AuM3m0_KAmQfqGO_JP0EZxptg28hb51uKRQBmECaiMnaiw0IPPjF1KlQ77JWPTU4")
         .then(response => {
           const incidentTypes = {
