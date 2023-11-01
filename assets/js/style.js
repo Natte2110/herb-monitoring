@@ -4,6 +4,7 @@
 
 window.addEventListener('scroll', () => {
     navColourChange(document.documentElement.scrollTop);
+    backgroundBlurChange(document.documentElement.scrollTop);
 });
 
 const navColourChange = (scrollValue) => {
@@ -17,4 +18,4 @@ const backgroundBlurChange = (scrollValue) => {
     document.getElementById("site-nav").style.filter = "blur(" + blur + "px)";
 }
 
-module.exports = {navColourChange, backgroundBlurChange};
+// module.exports = {navColourChange, backgroundBlurChange};
