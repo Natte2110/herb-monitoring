@@ -272,6 +272,10 @@ body {
   background-size: contain;
 }
 
+#weather{
+  background: url("../media/weather-card-background.png") no-repeat center center;
+  background-size: cover;
+}
 .weather-table{
   width: 100%;
 }
