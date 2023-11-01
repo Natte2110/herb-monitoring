@@ -43,7 +43,10 @@ require([
       container: "monitoring-map" // Div element
     });
     view.ui.add(monitoringChoices, "bottom-right")
-
+    let infoDiv = document.getElementById("information");
+    view.ui.add(infoDiv, "top-right");
+    infoDiv.style.display = "block";
+    monitoringChoices.style.display = "block";
     const floodMap = () => {
       /**
        * This function is used to create the layers and required items for the flood monitoring map
@@ -338,8 +341,8 @@ require([
             type: "simple",  // autocasts as new SimpleRenderer()
             symbol: {
               type: "simple-marker",  // autocasts as new SimpleMarkerSymbol()
-              size: 6,
-              color: "blue",
+              size: 10,
+              color: [50,211,211],
               outline: {  // autocasts as new SimpleLineSymbol()
                 width: 0.5,
                 color: "white"
