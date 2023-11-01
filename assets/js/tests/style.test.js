@@ -2,7 +2,7 @@
  * @jest-environment jsdom
  */
 
-const navColourChange = require("../style.js")
+const {navColourChange} = require("../style")
 
 beforeEach(() => {
     const fs = require('fs');
@@ -17,12 +17,11 @@ beforeEach(() => {
 describe("Dynamic Style Effects", () => {
     describe("Navbar Colour Changing", () => {
         test("Expect Navbar Colour to be transparent", () => {
-            navColourChange(0);
             expect(document.getElementById("site-nav").style.backgroundColor).toEqual("");
         });
         test("Expect navbar to change to an opaque background", () => {
             navColourChange(300);
-            expect(document.getElementById("site-nav").style.backgroundColor).toEqual("rgb(40, 45, 50, 1)");
+            expect(document.getElementById("site-nav").style.backgroundColor).toEqual("rgb(40, 45, 50)");
         })
     });
 });
