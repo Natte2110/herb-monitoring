@@ -30,13 +30,13 @@ require([
         return responseData;
       })
       .catch(error => console.warn(error));
-  }
+  };
 
   const updateInfo = (info) => {
     let div = document.getElementById("information");
     div.innerHTML = info;
-  }
-  const cardClasses = ["top-card", "middle-card", "bottom-card"]
+  };
+  const cardClasses = ["top-card", "middle-card", "bottom-card"];
   const monitoringChoices = document.getElementById("monitoring-items");
 
   document.getElementById('site-nav').style.backgroundColor = "rgb(40, 45, 50)";
@@ -51,18 +51,18 @@ require([
       let infoExpanded = false;
       
       if (screenWidth <= 720 && infoExpanded === false ) {
-        view.ui.remove(infoDiv)
+        view.ui.remove(infoDiv);
         view.ui.add(expandInfo, "top-right");
         infoDiv.style.width = "100%";
         infoExpanded = true;
       } else {
-        view.ui.remove(expandInfo)
+        view.ui.remove(expandInfo);
         view.ui.add(infoDiv, "top-right");
         infoDiv.style.width = "35%";
         infoExpanded = false;
       }
       infoDiv.style.display = "block";
-    }
+    };
 
     const map = new Map({
       basemap: "dark-gray-vector" // basemap styles service
@@ -128,7 +128,7 @@ require([
                 <h1>Flood Alerts</h1>
                 <p>This map displays potential flood alerts</p>
                 <p>Click on any monitoring station on the map to display it's information and to show the potential flooding area</p>
-              `)
+              `);
               let itemsSeverity = response.items;
               let merged = [];
 
@@ -136,9 +136,9 @@ require([
                 if (itemsSeverity[i].severityLevel) {
                   itemsLocation.forEach(item => {
                     if (item.fwdCode === itemsSeverity[i].floodAreaID) {
-                      item.severityLevel = itemsSeverity[i].severityLevel
-                      item.severity = itemsSeverity[i].severity
-                      item.timeMessageChanged = itemsSeverity[i].timeMessageChanged
+                      item.severityLevel = itemsSeverity[i].severityLevel;
+                      item.severity = itemsSeverity[i].severity;
+                      item.timeMessageChanged = itemsSeverity[i].timeMessageChanged;
                       merged.push(item);
                     }
                   });
@@ -162,9 +162,9 @@ require([
                     polygon: item.polygon,
                     timeMessageChanged: item.timeMessageChanged
                   }
-                })
-                x++ // Increment for the object ID's
-              })
+                });
+                x++; // Increment for the object ID's
+              });
 
               const popupCreation = (feature) => {
                 const div = document.createElement("div");
@@ -174,9 +174,9 @@ require([
                   <p>${feature.graphic.attributes.description}</p>
                   <p>This station has a severity level of <b>${feature.graphic.attributes.severityLevel}</b>, with a desciption of <b>"${feature.graphic.attributes.severity}".</b></p>
                   <p>This warning was last updated - <b>${feature.graphic.attributes.timeMessageChanged}</b></p>
-                  `
+                  `;
                 return div;
-              }
+              };
 
               reactiveUtils.on(
                 () => view.popup,
@@ -192,7 +192,7 @@ require([
                 /**
                  * This function will be used to display the flood area of the alert to the user.
                  */
-                let polygon = view.popup.features[0].attributes.polygon
+                let polygon = view.popup.features[0].attributes.polygon;
                 getData(polygon).then(response => {
                   // create a new blob from geojson to be used in the layer
                   const blob = new Blob([JSON.stringify(response)], {
@@ -217,11 +217,11 @@ require([
                   }, {
                     duration: 1000
                   }); // Zooms to selected flood alert station
-                  map.layers.removeAll()
-                  map.layers.add(floodArea)
-                  map.layers.add(layer)
+                  map.layers.removeAll();
+                  map.layers.add(floodArea);
+                  map.layers.add(layer);
                 });
-              }
+              };
               // Represents the way that this action will be displayed on the popup window
               const showPolygonAction = {
                 title: "Show Flood Area",
@@ -310,17 +310,17 @@ require([
                 }],
               };
               map.layers.add(layer);
-            })
+            });
         });
-    }
+    };
 
     const weatherMap = () => {
       updateInfo(`
                 <h1>Weather Monitoring</h1>
                 <p>This map displays Weather Stations</p>
                 <p>Click on any monitoring station on the map to display today's forcast for that site</p>
-              `)
-      const apiKey = 'cd728bac-11c4-48d4-b7d1-42248c13f9fe'
+              `);
+      const apiKey = 'cd728bac-11c4-48d4-b7d1-42248c13f9fe';
       getData(`http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/json/sitelist?key=${apiKey}`).then(response => {
 
         const stationsData = response.Locations.Location;
@@ -337,19 +337,17 @@ require([
               name: item.name,
               unitaryAuthArea: item.unitaryAuthArea,
             }
-          })
-          x++ // Increment for the object ID's
-        })
+          });
+          x++; // Increment for the object ID's
+        });
 
         const popupCreation = (feature) => {
           const div = document.createElement("div");
           getData(`http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/${feature.graphic.attributes.id}?res=daily&key=${apiKey}`).then(response => {
             let params = response.SiteRep.Wx.Param;
-            let reports = response.SiteRep.DV.Location.Period
 
             let todayDay = response.SiteRep.DV.Location.Period[0].Rep[0];
-            let todayNight = response.SiteRep.DV.Location.Period[0].Rep[1];
-            let unitReplace = { "C": "°C", "compass": "", "mph": " mph", "%": "%", "": "" }
+            let unitReplace = { "C": "°C", "compass": "", "mph": " mph", "%": "%", "": "" };
             function generateTableRow(param) {
               if (todayDay[param.name]) {
                 return `
@@ -373,10 +371,10 @@ require([
                   ${rows}
                 </table>
               `;
-          }).catch(error => { div.innerHTML = "<p>Cannot gather weather information" })
+          }).catch(error => { div.innerHTML = "<p>Cannot gather weather information"; });
 
           return div;
-        }
+        };
 
         let layer = new FeatureLayer({
           source: features,  // autocast as a Collection of new Graphic()
@@ -420,8 +418,8 @@ require([
           opacity: 0.5
         });
         map.layers.add(layer);
-      })
-    }
+      });
+    };
 
     const trafficMap = () => {
       updateInfo(`
@@ -429,7 +427,7 @@ require([
                 <p>This map displays reports of traffic incidents</p>
                 <p>To begin, zoom in to the location you wish to check</p>
                 <p>Then, click on any report to view further information about it</p>
-              `)
+              `);
       getData("https://dev.virtualearth.net/REST/v1/Traffic/Incidents/49.053718,%20-10.617814,59.750557,%201.719574?key=AuM3m0_KAmQfqGO_JP0EZxptg28hb51uKRQBmECaiMnaiw0IPPjF1KlQ77JWPTU4")
         .then(response => {
           const incidentTypes = {
@@ -451,7 +449,7 @@ require([
             3: "Moderate",
             4: "Serious",
           };
-          let trafficReports = response.resourceSets[0].resources
+          let trafficReports = response.resourceSets[0].resources;
           let features = [];
           let x = 1;
           trafficReports.forEach(item => {
@@ -467,9 +465,9 @@ require([
                 title: item.title,
                 icon: item.icon
               }
-            })
-            x++ // Increment for the object ID's
-          })
+            });
+            x++; // Increment for the object ID's
+          });
           let heatmapLayer = new FeatureLayer({
             source: features,
             objectIdField: "ObjectID",
@@ -511,9 +509,9 @@ require([
               `<p>${feature.graphic.attributes.description}</p>
               <p>This report has been declared as <b>${feature.graphic.attributes.type}</b>, with a severity of <b>${feature.graphic.attributes.severityScore}.</b></p>
               <p>Road Closed - <b>${feature.graphic.attributes.roadClosed}</b></p>
-              `
+              `;
             return div;
-          }
+          };
 
           let layer = new FeatureLayer({
             source: features,
@@ -596,12 +594,12 @@ require([
             opacity: 0.5
           });
           map.layers.add(layer);
-        })
-    }
-    if (id === "flood") { floodMap() };
-    if (id === "weather") { weatherMap() };
-    if (id === "traffic") { trafficMap() };
-  }
+        });
+    };
+    if (id === "flood") { floodMap(); }
+    if (id === "weather") { weatherMap(); }
+    if (id === "traffic") { trafficMap(); }
+  };
   monitoringChoices.addEventListener("click", function (event) {
     /**
      * This section creates an event listener for the entire card stack.
@@ -609,8 +607,8 @@ require([
      * The next part removes the card organisation classes from each card, before reordering and reapplying 
      * the organisation classes afterwards.
      */
-    let clickedID = event.target.parentElement
-    let orderItems = document.getElementsByClassName("monitoring-switch")
+    let clickedID = event.target.parentElement;
+    let orderItems = document.getElementsByClassName("monitoring-switch");
     let newOrder = [clickedID.id];
     for (let i = 0; i < orderItems.length; i++) {
       if (orderItems[i].id != newOrder[0]) {
@@ -618,13 +616,13 @@ require([
       }
     }
     newOrder.forEach(id => {
-      let card = document.getElementById(id)
-      card.classList.remove(card.classList[1])
-      card.classList.add(cardClasses[newOrder.indexOf(id)])
+      let card = document.getElementById(id);
+      card.classList.remove(card.classList[1]);
+      card.classList.add(cardClasses[newOrder.indexOf(id)]);
     });
 
     displayMap(clickedID.id);
   });
 
-  displayMap("flood")
+  displayMap("flood");
 });
