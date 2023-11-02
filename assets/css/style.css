@@ -353,6 +353,11 @@ body {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
+
+.contact-container p {
+  margin-bottom: 2rem;
+}
+
 .contact-information {
   float: left;
 }
@@ -383,7 +388,9 @@ body {
   #contact-logo {
     width: 30%;
   }
-
+  .contact-container p {
+    margin-bottom: 0.8rem;
+  }
   #name {
     width: 48%;
     float: left;
