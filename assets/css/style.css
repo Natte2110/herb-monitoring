@@ -469,3 +469,21 @@ body {
   margin-bottom: 0;
 }
 /* End of Footer Styling */
+
+/* Start of 404.html Styling */
+#not-found-container{
+  width: 70%;
+  margin: 5% auto;
+  text-align: center;
+  color: var(--text-color);
+}
+
+#not-found-logo{
+  width: 80%;
+}
+
+#not-found-text a{
+  color: var(--text-color);
+  font-weight: 700;
+}
+/* End of 404.html Styling */
