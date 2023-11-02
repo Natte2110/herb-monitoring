@@ -359,6 +359,24 @@ body {
   float: right;
 }
 
+.feedback-form-container input{
+  width: 100%;
+  margin-bottom: 3%;
+  border-radius: 5px;
+}
+
+.feedback-form-container textarea{
+  width: 100%;
+  border-radius: 5px;
+}
+
+#enquiry-submit{
+  max-width: 50%;
+  margin-top: 2%;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+}
+
 /* Start of Footer Styling */
 .footer-dark {
   margin-top: 10vh;
