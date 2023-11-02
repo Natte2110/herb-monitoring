@@ -247,7 +247,7 @@ body {
   color: var(--text-color);
   font-size: 1rem;
   font-weight: 800;
-  vertical-align:middle;
+  vertical-align: middle;
   text-align: center;
   user-select: none;
 }
@@ -270,62 +270,64 @@ body {
   border: var(--text-color) solid 1px;
 }
 
-#flood{
+#flood {
   background: url("../media/flood-card-background.png") no-repeat center center;
   background-size: contain;
 }
 
-#weather{
-  background: url("../media/weather-card-background.png") no-repeat center center;
+#weather {
+  background: url("../media/weather-card-background.png") no-repeat center
+    center;
   background-size: cover;
 }
 
-#traffic{
-  background: url("../media/traffic-card-background.png") no-repeat center center;
+#traffic {
+  background: url("../media/traffic-card-background.png") no-repeat center
+    center;
   background-size: cover;
 }
 
-.weather-table{
+.weather-table {
   width: 100%;
 }
-.weather-table tr{
+.weather-table tr {
   border: white 1px solid;
   margin: 5px;
 }
 
-#information{
+#information {
   width: 35%;
   background-color: var(--accent-color);
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    text-align: center;
+  text-align: center;
   display: none;
   color: var(--text-color);
   padding: 10px;
 }
 
-#information h1{
+#information h1 {
   margin: 10px;
   font-size: 1rem;
   font-weight: 700;
 }
 .esri-view-width-xsmall .esri-expand--auto .esri-expand__container--expanded {
-  background: var(--accent-color)!important;
-  top: 56px!important;
-  z-index: 3!important;
+  background: var(--accent-color) !important;
+  top: 56px !important;
+  z-index: 3 !important;
 }
 
-.esri-ui .esri-popup{
-  z-index: 3!important;
+.esri-ui .esri-popup {
+  z-index: 3 !important;
 }
 
 /* End of Monitoring.html Styling */
 
 /* Start of Contact.html Styling */
 
-.contact-container{
+.contact-container {
   position: relative;
   margin: auto;
   height: 80%;
@@ -336,12 +338,12 @@ body {
   font-size: 1rem;
 }
 
-#contact-logo{
+#contact-logo {
   width: 50%;
   margin: 1rem;
 }
 
-.contact-div{
+.contact-div {
   padding: 2%;
   width: 40%;
   height: 80%;
@@ -351,32 +353,61 @@ body {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 30px 60px -12px inset,
     rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
-.contact-information{
+.contact-information {
   float: left;
 }
 
-.feedback-form-container{
+.feedback-form-container {
   float: right;
 }
 
-.feedback-form-container input{
+.feedback-form-container input {
   width: 100%;
   margin-bottom: 3%;
   border-radius: 5px;
 }
 
-.feedback-form-container textarea{
+.feedback-form-container textarea {
   width: 100%;
   border-radius: 5px;
 }
 
-#enquiry-submit{
+#enquiry-submit {
   max-width: 50%;
   margin-top: 2%;
   background-color: var(--primary-color);
   color: var(--text-color);
 }
 
+@media (max-width: 768px) {
+  #contact-logo {
+    width: 30%;
+  }
+
+  #name {
+    width: 48%;
+    float: left;
+  }
+  #email {
+    width: 48%;
+    float: right;
+  }
+
+  .contact-div {
+    width: 80%;
+    height: 50%;
+    margin: 5% auto;
+    font-size: 0.8rem;
+  }
+
+  .contact-information {
+    float: none;
+  }
+
+  .feedback-form-container {
+    float: none;
+  }
+}
 /* Start of Footer Styling */
 .footer-dark {
   margin-top: 10vh;
