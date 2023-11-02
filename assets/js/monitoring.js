@@ -36,7 +36,7 @@ require([
     let div = document.getElementById("information");
     div.innerHTML = info;
   };
-  const cardClasses = ["top-card", "middle-card", "bottom-card"];
+  const cardClasses = ["top-card", "bottom-card"];
   const monitoringChoices = document.getElementById("monitoring-items");
 
   document.getElementById('site-nav').style.backgroundColor = "rgb(40, 45, 50)";
@@ -314,113 +314,6 @@ require([
         });
     };
 
-    const weatherMap = () => {
-      updateInfo(`
-                <h1>Weather Monitoring</h1>
-                <p>This map displays Weather Stations</p>
-                <p>Click on any monitoring station on the map to display today's forcast for that site</p>
-              `);
-      const apiKey = 'cd728bac-11c4-48d4-b7d1-42248c13f9fe';
-      getData(`http://datapoint.metoffice.gov.uk/public/data/val/wxobs/all/json/sitelist?key=${apiKey}`).then(response => {
-
-        const stationsData = response.Locations.Location;
-
-        let features = []; // Empty array that the points will be put into
-        let x = 1; //Used for incrementing object ID's
-
-        stationsData.forEach(item => {
-          features.push({
-            geometry: new Point({ x: item.longitude, y: item.latitude }),
-            attributes: {
-              ObjectID: x,
-              id: item.id,
-              name: item.name,
-              unitaryAuthArea: item.unitaryAuthArea,
-            }
-          });
-          x++; // Increment for the object ID's
-        });
-
-        const popupCreation = (feature) => {
-          const div = document.createElement("div");
-          getData(`http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/${feature.graphic.attributes.id}?res=daily&key=${apiKey}`).then(response => {
-            let params = response.SiteRep.Wx.Param;
-
-            let todayDay = response.SiteRep.DV.Location.Period[0].Rep[0];
-            let unitReplace = { "C": "°C", "compass": "", "mph": " mph", "%": "%", "": "" };
-            function generateTableRow(param) {
-              if (todayDay[param.name]) {
-                return `
-                <tr>
-                  <td>${param.$}</td>
-                  <td>${todayDay[param.name]}${unitReplace[param.units]}</td>
-                </tr>
-              `;
-              }
-            }
-
-            const rows = params.map(generateTableRow).join("");
-
-            div.innerHTML = `
-                <p>Please see today's weather report below</p>
-                <table class="weather-table">
-                  <tr>
-                    <th>Title</th>
-                    <th>Value</th>
-                  </tr>
-                  ${rows}
-                </table>
-              `;
-          }).catch(error => { div.innerHTML = "<p>Cannot gather weather information"; });
-
-          return div;
-        };
-
-        let layer = new FeatureLayer({
-          source: features,  // autocast as a Collection of new Graphic()
-          objectIdField: "ObjectID",
-          fields: [{
-            name: "ObjectID",
-            alias: "ObjectID",
-            type: "oid"
-          }, {
-            name: "id",
-            alias: "id",
-            type: "string"
-          },
-          {
-            name: "name",
-            alias: "name",
-            type: "string"
-          },
-          {
-            name: "unitaryAuthArea",
-            alias: "unitaryAuthArea",
-            type: "string"
-          }],
-          popupTemplate: {
-            title: "{name}",
-            content: popupCreation,
-            outFields: ["*"]
-          },
-          renderer: {
-            type: "simple",  // autocasts as new SimpleRenderer()
-            symbol: {
-              type: "simple-marker",  // autocasts as new SimpleMarkerSymbol()
-              size: 10,
-              color: [50, 211, 211],
-              outline: {  // autocasts as new SimpleLineSymbol()
-                width: 0.5,
-                color: "white"
-              }
-            }
-          },
-          opacity: 0.5
-        });
-        map.layers.add(layer);
-      });
-    };
-
     const trafficMap = () => {
       updateInfo(`
                 <h1>Traffic Incidents</h1>
@@ -597,7 +490,6 @@ require([
         });
     };
     if (id === "flood") { floodMap(); }
-    if (id === "weather") { weatherMap(); }
     if (id === "traffic") { trafficMap(); }
   };
   monitoringChoices.addEventListener("click", function (event) {
