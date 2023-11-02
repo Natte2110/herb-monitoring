@@ -315,6 +315,11 @@ body {
 
 /* Start of Contact.html Styling */
 
+.contact-container h2{
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
 .contact-container {
   position: relative;
   margin: auto;
