@@ -192,7 +192,7 @@ require([
                 /**
                  * This function will be used to display the flood area of the alert to the user.
                  */
-                let polygon = view.popup.features[0].attributes.polygon;
+                let polygon = (view.popup.features[0].attributes.polygon).replace(/^http:/, "https:");;
                 getData(polygon).then(response => {
                   // create a new blob from geojson to be used in the layer
                   const blob = new Blob([JSON.stringify(response)], {
