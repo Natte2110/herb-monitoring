@@ -2,7 +2,7 @@
 
 <h1 align="center">HERB Monitoring</h1>
 
-Click [here]() to view the live project on GitHub Pages.
+Click [here](https://natte2110.github.io/herb-monitoring/) to view the live project on GitHub Pages.
 
 This is a project for the Code Institute Milestone Project 2. It is a website used to enable users to monitor frequently updated APIs containing geospatial information.
 
@@ -29,9 +29,9 @@ This will contain:
 
 -    #### Goals For A Frequent Visitor:
 
-        1. As A Frequent Visitor - I want to be able to view the sources of the data to verify it's integrity.
+        1. As A Frequent Visitor - I want to be able to view updated information to see if anything is pertinent to me.
         2. As A Frequent Visitor - I want to be able to use a location feature to find a specific area of the country, preferably my own location.
-        3. As A Frequent Visitor - I want to be able to draw my own features on the map in order to highliht a specific area.
+        3. As A Frequent Visitor - I want to be able to check a specific traffic incident to see if it will affect me.
 
 ## Design
 
@@ -56,3 +56,17 @@ Click on the links below to access the wireframes created to plan and design thi
 -   [Desktop Home Page Wireframe](assets/media/desktop-wireframe01.png)
 
 -   [Mobile Home Page Wireframe](assets/media/mobile-wireframe01.png)
+
+## Features
+
+-   ### Responsive
+
+    -   The website will be responsive on all devices, with CSS media queries to change size and position of elements on different screen sizes.
+
+-   ### Interactive
+
+    -   The website will incorporate interactivity by allowing the user to complete actions within the monitoring map faces.
+
+-   ### Current
+
+    -   The website will pull up-to-date data from monitoring APIs and display them accordingly. This will ensure that any new features will be dynamically loaded and added to the maps.
