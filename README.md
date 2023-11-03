@@ -23,13 +23,13 @@ This will contain:
         2. As A First Time Visitor - I want to be able to view an intuitive layout and navigation to easily find the page I require.
         3. As A First Time Visitor - I want to be able to interact with the maps on the page to achieve my desired purpose.
 
--    #### Goals For A Returning Visitor:
+-    ### Goals For A Returning Visitor:
 
         1. As A Returning Visitor - I want to be able to see any updates to the information on the monitoring maps.
         2. As A Returning Visitor - I want to be able to view a page containing contact details where I can ask for support or pose general queries.
         3. As A Returning Visitor - I want to be able to query the monitoring data to gain a better understanding of what it represents.
 
--    #### Goals For A Frequent Visitor:
+-    ### Goals For A Frequent Visitor:
 
         1. As A Frequent Visitor - I want to be able to view updated information to see if anything is pertinent to me.
         2. As A Frequent Visitor - I want to be able to use a location feature to find a specific area of the country, preferably my own location.
