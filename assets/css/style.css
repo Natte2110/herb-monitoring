@@ -135,7 +135,6 @@ body {
   font-size: 4em;
   line-height: 1.42857143;
   color: var(--text-color);
-  font-weight: 300;
 }
 
 .scroll-indicator {
@@ -492,3 +491,9 @@ body {
   font-weight: 700;
 }
 /* End of 404.html Styling */
+
+@media (max-width: 576px) {
+  .header-title {
+    font-size: x-small;
+  }
+}
