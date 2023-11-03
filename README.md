@@ -111,3 +111,13 @@ Click on the links below to access the wireframes created to plan and design thi
 12. [Cloud Convert:](https://cloudconvert.com/)
     - Cloud convert was a web based image conversion tool used to convert .jpg and .png images to a more suitable .webp file type.
     - The use of this vastly reduced the file size of the images made for much quicker loading times on each page, and thus a more pleasant experience for a user.
+
+## Testing
+
+To test the project, the W3C Markup and CSS Validators were used to ensure no syntax errors were present in the final code.
+
+The JSLint Validator was also used in order to verify the minimal JavaScript Code used.
+
+-   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](assets/media/htmlvalidator-result.png)
+-   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](assets/media/cssvalidator-result.png)
+-   [JSHint JavaScript Validator](https://jshint.com/) - [style.js](assets/media/jsvalidator-result.png) [monitoring.js](assets/media/jsvalidator-result02.png)
