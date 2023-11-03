@@ -11,6 +11,8 @@ This will contain:
 -   Flood Alerts
 -   Traffic Data
 
+<h2 align="center"><img src="./assets/media/am-i-responsive.png"></h2>
+
 # User Experience (UX)
 
 ## User Stories
