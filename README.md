@@ -282,3 +282,12 @@ This testing framework was run in a Node.js environment, allowing the JavaScript
             <div align="center">
                 <img src="assets/media/user-story-13.png" width="600px" style="margin-right:20px;">
             </div>
+
+### Further Testing
+
+- Family members and colleagues were consulted to receive feedback on the overall design and functionality of the website.
+- Each link was tested on every individual page in order to ensure correct internal connection, as well as any external links.
+
+### Known Bugs
+
+- Sometimes the browser window may refresh when changing map faces. This is due to a large amount of data transfer possibly resulting in a memory overload for the specific browser tab.
