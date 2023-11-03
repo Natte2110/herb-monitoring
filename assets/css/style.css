@@ -131,7 +131,7 @@ body {
   text-align: center;
 }
 
-.header-title h1 {
+.header-title h2 {
   font-size: 4em;
   line-height: 1.42857143;
   color: var(--text-color);
