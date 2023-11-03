@@ -299,3 +299,27 @@ The project was hosted using GitHub pages. This was done using the following pro
 - Locating the [Settings](https://github.com/Natte2110/herb-monitoring/settings) Pane within the [GitHub Repository](https://github.com/Natte2110/herb-monitoring).
 - Under the [Pages](https://github.com/Natte2110/herb-monitoring/settings/pages) section, the 'Main' branch was selected from the drop down within the 'Build And Deployment' sub-section.
 - After a short wait, the [URL](https://natte2110.github.io/herb-monitoring/) was generated for the live project.
+
+## Credits
+
+### Content
+
+The content (text within the information and about divs) used within the website was adapted from results that were generated using [ChatGPT](https://chat.openai.com/) using prompts such as:
+
+- "Write me an about section for a website called HERB Monitoring which provides the ability to interact with geospatial API's"
+- "Generate a slogan for this company based off the previous prompt".
+
+### Media
+
+The images used within the website were taken from [ESRI](https://www.esri.com/en-us/home) web pages and screenshots from maps previously made by myself.
+
+[Coolers](https://coolors.co/) Was used in order to find a suitable colour scheme for the websites colour scheme as it provides valuable insights and allows you to view the colours as someone with different type of colour blindness would.
+
+### Code
+
+- The CSS to keep the background image fixed in place was taken from this [Stack Overflow](https://stackoverflow.com/questions/22006587/how-to-make-div-background-image-responsive) post.
+- This [W3Schools Page](https://www.w3schools.com/cssref/pr_background-position.php) was used to understand the **background-position** CSS Rule used when repositioning the background images on smaller screens.
+- Again, this [W3Schools Page](https://www.w3schools.com/howto/howto_css_blurred_background.asp) was used to understand how to blur the background image using CSS so that is does not distract from the foreground information.
+- In order to dynamically blur the background image based on the pages scroll location, this [Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event) page was utilised to further understand the windows.onscroll event.
+- The [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/) documentation was also consulted regularly to understand the grid/layout system and the available bootstrap components. It was also used to help enable the website to be responsive and available to all devices.
+- This [Stack Overflow Page](https://stackoverflow.com/questions/59675724/how-do-i-test-an-onscroll-event-with-jest-enzyme-reactjs) was consulted in order to find out how to send a scroll event to a mock DOM within Jest testing environments.
