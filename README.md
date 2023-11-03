@@ -291,3 +291,11 @@ This testing framework was run in a Node.js environment, allowing the JavaScript
 ### Known Bugs
 
 - Sometimes the browser window may refresh when changing map faces. This is due to a large amount of data transfer possibly resulting in a memory overload for the specific browser tab.
+
+## Site Deployment
+
+The project was hosted using GitHub pages. This was done using the following process.
+
+- Locating the [Settings](https://github.com/Natte2110/herb-monitoring/settings) Pane within the [GitHub Repository](https://github.com/Natte2110/herb-monitoring).
+- Under the [Pages](https://github.com/Natte2110/herb-monitoring/settings/pages) section, the 'Main' branch was selected from the drop down within the 'Build And Deployment' sub-section.
+- After a short wait, the [URL](https://natte2110.github.io/herb-monitoring/) was generated for the live project.
