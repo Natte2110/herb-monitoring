@@ -222,9 +222,63 @@ This testing framework was run in a Node.js environment, allowing the JavaScript
 
         3. As A First Time Visitor - I want to be able to interact with the maps on the page to achieve my desired purpose.
 
-            -   on each interactive map, a user can click on features, change the data on the map and view more information on each section.
+            -   On each interactive map, a user can click on features, change the data on the map and view more information on each section.
 
             <div align="center">
                 <img src="assets/media/user-story-05.png" width="400px" style="margin-right:20px;">
                 <img src="assets/media/user-story-06.png" width="400px">
+            </div>
+
+-    #### Goals For A Returning Visitor:
+
+        1. As A Returning Visitor - I want to be able to see any updates to the information on the monitoring maps.
+
+            -   The data for the maps is fetched every time that it is loaded, this ensures that each time a user visits the page, they are able to view completely up-to-date information every time. This is shown in the screenshot below, where the Fetch API returns the data each time the floodMap is loaded.
+
+            <div align="center">
+                <img src="assets/media/user-story-07.png" width="600px" style="margin-right:20px;">
+            </div>
+
+        2. As A Returning Visitor - I want to be able to view a page containing contact details where I can ask for support or pose general queries.
+
+            -   Along the navigation bar is a link to a 'Contact Us' Page. (This link is also seen in the footer sitemap)
+            -   On said page is the companies contact information, along with a form which would be used to send an email automatically to the companies enquiry inbox.
+
+            <div align="center">
+                <img src="assets/media/user-story-08.png" width="600px" style="margin-right:20px;">
+            </div>
+
+        3. As A Returning Visitor - I want to be able to query the monitoring data to gain a better understanding of what it represents.
+
+            -   Each point on the maps can be interacted with. When done so, more information is available within a popup window above the point.
+
+            <div align="center">
+                <img src="assets/media/user-story-09.png" width="600px" style="margin-right:20px;">
+            </div>
+
+-    #### Goals For A Frequent Visitor:
+
+        1. As A Frequent Visitor - I want to be able to view updated information to see if anything is pertinent to me.
+
+            -   As previously mentioned, the data is gathered each time the map is loaded. Dates are also available in the popups to show a user the time period it effects.
+            
+            <div align="center">
+                <img src="assets/media/user-story-10.png" width="500px" style="margin-right:20px;">
+            </div>
+
+        2. As A Frequent Visitor - I want to be able to use a location feature to find a specific area of the country, preferably my own location.
+
+            - A couple of widgets are available on the map face which can be used for locating the user on the map, or searching for a specific area. This allows a user to find information in their area or check a specific portion of the map.
+
+            <div align="center">
+                <img src="assets/media/user-story-11.png" width="400px" style="margin-right:20px;">
+                <img src="assets/media/user-story-12.png" width="400px">
+            </div>
+
+        3. As A Frequent Visitor - I want to be able to check a specific traffic incident to see if it will affect me.
+
+            - On the traffic map, there is more information inside a popup for each incident. This contains information like a description, severity and what the incident is. This, in conjunction with the search widget allows a user to check a specific location they are interested in and see if a traffic incident will affect them.
+
+            <div align="center">
+                <img src="assets/media/user-story-13.png" width="600px" style="margin-right:20px;">
             </div>
