@@ -192,3 +192,39 @@ Please click [here](./assets/js/tests/style.test.js) to view the testing file us
 </div>
 
 This testing framework was run in a Node.js environment, allowing the JavaScript files to be executed and tested completely irrespective of a web based environment.
+
+### Testing User Stories from User Experience (UX) Section
+
+-    #### Goals For A First-Time Visitor:
+
+        1. As A First Time Visitor - I want to be able to understand the main purpose of the site, and find out useful information regarding the business.
+
+            -   Upon visiting the initial 'Home' page, the user is greeted by a large map-like image, with the title of 'HERB Monitoring'. This can immediately be perceived as a form of map/monitoring system which is the main purpose of the site.
+
+            <div align="center">
+                <img src="assets/media/user-story-01.png" width="500px">
+            </div>
+
+            -   The user is also greeted with a moving scroll indicator which intices a user to scroll down. Upon doing so, they are met with more information regarding the website with suitable images that convey what they can expect to see.
+
+            <div align="center">
+                <img src="assets/media/user-story-02.png" width="500px">
+            </div>
+
+        2. As A First Time Visitor - I want to be able to view an intuitive layout and navigation to easily find the page I require.
+
+            -   Each page contains a clean navigation bar at the top which turns into a expandable menu section on smaller screens.
+
+            <div align="center">
+                <img src="assets/media/user-story-03.png" width="800px">
+                <img src="assets/media/user-story-04.png" width="400px">
+            </div>
+
+        3. As A First Time Visitor - I want to be able to interact with the maps on the page to achieve my desired purpose.
+
+            -   on each interactive map, a user can click on features, change the data on the map and view more information on each section.
+
+            <div align="center">
+                <img src="assets/media/user-story-05.png" width="400px" style="margin-right:20px;">
+                <img src="assets/media/user-story-06.png" width="400px">
+            </div>
