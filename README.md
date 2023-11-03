@@ -323,3 +323,11 @@ The images used within the website were taken from [ESRI](https://www.esri.com/e
 - In order to dynamically blur the background image based on the pages scroll location, this [Mozilla Developer](https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event) page was utilised to further understand the windows.onscroll event.
 - The [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/) documentation was also consulted regularly to understand the grid/layout system and the available bootstrap components. It was also used to help enable the website to be responsive and available to all devices.
 - This [Stack Overflow Page](https://stackoverflow.com/questions/59675724/how-do-i-test-an-onscroll-event-with-jest-enzyme-reactjs) was consulted in order to find out how to send a scroll event to a mock DOM within Jest testing environments.
+
+## Further Development
+
+Some future considerations or further development ideas are:
+
+- Incorporate more pages for monitoring so people can interact with more API's.
+- Add more interactivity to the data such as sharing or drawing custom shapes to highlight specific areas.
+- Add functionality to print a chosen area of the map in order to share it with others.
