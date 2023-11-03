@@ -98,7 +98,7 @@ body {
   z-index: -99;
   height: 100vh;
   overflow: hidden;
-  background: url("../media/herb-background.jpg") no-repeat center center fixed;
+  background: url("../media/herb-background.webp") no-repeat center center fixed;
   animation-name: landing-image-zoom;
   animation-duration: 5s;
   animation-fill-mode: forwards;
@@ -176,18 +176,18 @@ body {
 }
 
 #map01 {
-  background: url('../media/map01.png') center center no-repeat;
+  background: url('../media/map01.webp') center center no-repeat;
   background-size: cover;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
 }
 
 #map02 {
-  background: url('../media/map02.png') center center no-repeat;
+  background: url('../media/map02.webp') center center no-repeat;
   background-size: cover;
 }
 
 #map03 {
-  background: url('../media/map03.png') center center no-repeat;
+  background: url('../media/map03.webp') center center no-repeat;
   background-size: cover;
 }
 
