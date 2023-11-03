@@ -121,3 +121,38 @@ The JSLint Validator was also used in order to verify the minimal JavaScript Cod
 -   [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](assets/media/htmlvalidator-result.png)
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](assets/media/cssvalidator-result.png)
 -   [JSHint JavaScript Validator](https://jshint.com/) - [style.js](assets/media/jsvalidator-result.png) [monitoring.js](assets/media/jsvalidator-result02.png)
+
+### Behaviour Driven Development (Manual Testing)
+
+This form is development focuses on what is expected from a piece of software when the user interacts with it in a certain way. This could be anything from scrolling on the page to clicking a button.
+
+BDD is also classed as a 'user-centric' form of development, and as such I utilised this to test the users experience whilst using the website. This type of testing was suitable for user experience as you cannot judge how a user would feel using the website just by values and attributes of the elements displayed.
+
+The ways in which this form of testing was implemented are:
+
+-   <b>Testing responsiveness of the website elements</b> - Using the Chrome Developer tools, the screensize was dynamically changed within the "Device Toolbar" to ensure that elements on the page were correctly sized, and all required content was visible at all scales.
+
+<div align="center">
+    <img src="./assets/media/responsive-testing-01.png" width="200px" style="margin-right: 20px;">
+    <img src="./assets/media/responsive-testing-02.png" width="500px">
+</div>
+
+- <b>Validators</b> - by passing the link to the website through various validators (As shown above), each file in the project was tested for errors and to view any areas that could be improved.
+
+- <b>Testing across browsers and devices</b> - The site itself was tested across various devices and different browsers on each. This style of testing was conducted to ensure seamless access across a variety of possible connected devices.
+    - <b>Devices</b>
+        -   MacBook Pro (MacOS)
+        -   Windows 11 Laptop
+        -   iPhone 12 (iOS)
+        -   Raspberry Pi (Ubuntu 22.04)
+    - <b>Broswers</b>
+        -   Google Chrome
+        -   AVG Secure Browser
+        -   Chromium (Raspberry Pi)
+        -   Safari
+
+- <b>Page Speed Insights</b> - This is a tool that 'scores' a website based on it's proficiency in 4 categories. This was used as a manual testing tool to help gain an insight to the websites usability and where it can be improved.
+
+<div align="center">
+    <img src="./assets/media/pagespeedinsights.png" width="600px">
+</div>
