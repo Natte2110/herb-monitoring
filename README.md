@@ -156,3 +156,15 @@ The ways in which this form of testing was implemented are:
 <div align="center">
     <img src="./assets/media/pagespeedinsights.png" width="600px">
 </div>
+
+#### Known Issues
+
+The development phase was mainly free of any major issues, however, once the project was deployed on GitHub Pages, one of the monitoring maps was unable to be loaded.
+
+This was due to the API link starting with a 'http' instead of a 'https'. This caused GitHub Pages to restrict the fetch API from accessing this information, and as a result that specific portion of the displayable maps had to be removed.
+
+<div align="center">
+    <img src="./assets/media/known-issue-01.png" width="500px">
+</div>
+
+Aside from the aforementioned issue, no other major errors were present.
