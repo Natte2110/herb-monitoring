@@ -111,6 +111,8 @@ Click on the links below to access the wireframes created to plan and design thi
 12. [Cloud Convert:](https://cloudconvert.com/)
     - Cloud convert was a web based image conversion tool used to convert .jpg and .png images to a more suitable .webp file type.
     - The use of this vastly reduced the file size of the images made for much quicker loading times on each page, and thus a more pleasant experience for a user.
+13. [Jest](https://jestjs.io/)
+    - Jest is a testing framework used for Test Driven Development of JavaScript. It was used in this project to ensure that certain functions provided the correct outputs before their deployment.
 
 ## Testing
 
@@ -168,3 +170,25 @@ This was due to the API link starting with a 'http' instead of a 'https'. This c
 </div>
 
 Aside from the aforementioned issue, no other major errors were present.
+
+### Test Driven Development (Automatic Testing)
+
+Test Driven Development focuses on a set structure whist creating usable functions:
+
+1.  <b>Create a Failing Test</b> - Before adding any functionality to a function, you should first create a test detailing what exactly you want the outcome to be. This test, of course will fail as the code required to make it pass is not yet in place.
+2.  <b>Make the test pass</b> - After the failing test has been written, the simplest process is written in the original function in order to make the previously created test pass.
+3. <b>Refactor</b> - This stage refers to the optimisation of the code written to pass the previous test. This could be improving the speed or completely changing the way the process occurs.
+
+This order of TDD is repeated continuously for each function to be tested. This ensures that all possible outcomes have been covered to ensure the code has a very minimal, if not non-existent chance of failing.
+
+#### Implementation
+
+This project utilised a form of testing using a JavaScript Framework called Jest. Jest allowed the testing of certain functions and their outputs before they were deployed on to each page.
+
+Please click [here](./assets/js/tests/style.test.js) to view the testing file used for testing [style.js](./assets/js/style.js).
+
+<div align="center">
+    <img src="./assets/media/jest-evidence.png" width="500px">
+</div>
+
+This testing framework was run in a Node.js environment, allowing the JavaScript files to be executed and tested completely irrespective of a web based environment.
