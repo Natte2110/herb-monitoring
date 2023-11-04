@@ -202,7 +202,7 @@ body {
 /* Start of Monitoring.html Styling */
 
 #monitoring-map {
-  background: url("../media/herb-background.jpg") no-repeat center center;
+  background: url("../media/herb-background.webp") no-repeat center center;
   background-size: cover;
   position: absolute;
   right: 0;
