@@ -172,6 +172,10 @@ body {
   margin-bottom: 40px;
 }
 
+.map p{
+  font-size: large;
+}
+
 #map01 {
   background: url('../media/map01.webp') center center no-repeat;
   background-size: cover;
