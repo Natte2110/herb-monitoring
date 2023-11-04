@@ -417,7 +417,7 @@ body {
   background-color: var(--accent-color);
 }
 
-.footer-dark h3 {
+.footer-dark h2 {
   margin-top: 0;
   margin-bottom: 12px;
   font-weight: bold;
