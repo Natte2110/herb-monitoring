@@ -156,7 +156,7 @@ The ways in which this form of testing was implemented are:
 - <b>Page Speed Insights</b> - This is a tool that 'scores' a website based on it's proficiency in 4 categories. This was used as a manual testing tool to help gain an insight to the websites usability and where it can be improved.
 
 <div align="center">
-    <img src="./assets/media/pagespeedinsights.png" width="600px">
+    <img src="./assets/media/page-speed-insights.png" width="600px">
 </div>
 
 #### Known Issues
