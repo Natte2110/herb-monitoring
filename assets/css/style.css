@@ -463,14 +463,14 @@ body {
 }
 
 .footer-dark .item.text li {
-  opacity: 0.6;
+  opacity: 0.8;
   margin-bottom: 0;
 }
 
 .footer-dark .copyright {
   text-align: center;
   padding-top: 24px;
-  opacity: 0.3;
+  opacity: 1;
   font-size: 13px;
   margin-bottom: 0;
 }
